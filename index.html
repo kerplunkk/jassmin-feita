@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Para la michi</title>
+
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: linear-gradient(180deg, #ffe6f0, #ffd1e8);
+  font-family: "Comic Sans MS", Arial, sans-serif;
+  overflow: hidden;
+  text-align: center;
+  color: #d6336c;
+}
+
+/* Título */
+h1 {
+  margin-top: 20px;
+  font-size: 42px;
+}
+
+/* Texto */
+.descripcion {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+/* Animación latido */
+@keyframes latido {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
+
+.latido {
+  animation: latido 1.2s infinite;
+}
+
+/* Gatitos principales */
+.gatos-principales {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-bottom: 20px;
+}
+
+.gatos-principales img {
+  width: 180px;
+}
+
+/* Imágenes decorativas */
+.decoracion {
+  position: absolute;
+  width: 110px;
+  opacity: 0.9;
+}
+
+/* Botones */
+button {
+  background-color: #ff8fab;
+  border: none;
+  padding: 15px 30px;
+  font-size: 18px;
+  border-radius: 25px;
+  color: white;
+  cursor: pointer;
+  margin: 10px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+
+button:hover {
+  background-color: #ff5d8f;
+}
+
+/* Corazones cayendo */
+.heart {
+  position: fixed;
+  top: -10px;
+  font-size: 24px;
+  animation: caer linear forwards, latido 1s infinite;
+}
+
+@keyframes caer {
+  from { transform: translateY(0); }
+  to { transform: translateY(110vh); }
+}
+</style>
+</head>
+
+<body>
+
+<h1>a pesar d todo me gustas jassmin aun asi tengas la pata sucia</h1>
+
+<p class="descripcion">
+Te quiero mucho no lo olvides GORDITA
+</p>
+
+<!-- Gatitos que LATEN -->
+<div class="gatos-principales">
+  <img src="gatobanana.png" class="latido" alt="Gato banana">
+  <img src="gatorosas.png" class="latido" alt="Gato rosas">
+</div>
+
+<!-- Botones -->
+<button onclick="document.getElementById('musica').play()">
+🎵 Reproducir canción
+</button>
+
+<button onclick="alert('TE QUIERO JASSMINNN Y NO C Q HAGO O SI ESTA FUNCIONANDO LA PAGINA ESTA KE HICE SEGUN YO SI XD')">
+💌 Mensaje
+</button>
+
+<!-- Música -->
+<audio id="musica">
+  <source src="tequiero.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Imágenes decorativas (NO LATEN) -->
+<img src="gato1.jpg" class="decoracion" style="top:15%; left:5%;">
+<img src="gato2.jpg" class="decoracion" style="top:60%; left:8%;">
+<img src="gato3.jpg" class="decoracion" style="top:40%; right:5%;">
+<img src="xdd.png" class="decoracion" style="bottom:10%; right:12%;">
+
+<!-- Corazones cayendo -->
+<script>
+function crearCorazon() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerText = "💗";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
+}
+
+setInterval(crearCorazon, 400);
+</script>
+
+</body>
+</html>
